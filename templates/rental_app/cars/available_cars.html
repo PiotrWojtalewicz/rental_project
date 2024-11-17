@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wypożyczalnia Samochodów</title>
+</head>
+<body>
+    <!-- Napis powitalny -->
+    <h1>Witamy w wypożyczalni samochodów!</h1>
+
+    <!-- Formularz filtrów -->
+    <form method="get">
+        <label for="marka">Filtruj po marce:</label>
+        <input type="text" id="marka" name="marka" placeholder="Wpisz markę" value="{{ request.GET.marka }}">
+        <button type="submit">Filtruj</button>
+    </form>
+
+    <!-- Lista dostępnych samochodów -->
+    <h2>Dostępne samochody</h2>
+    <ul>
+        {% for car in cars %}
+            <li>{{ car.brand }} {{ car.model }} - {{ car.fuel_type }} - Cena: {{ car.price_per_day }} zł/dzień</li>
+        {% empty %}
+            <li>Brak dostępnych samochodów.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

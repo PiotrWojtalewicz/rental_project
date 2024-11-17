@@ -1,0 +1,27 @@
+<!-- templates/rental_app/cars/rental_history.html -->
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Wynajmów</title>
+</head>
+<body>
+    <h1>Historia Wynajmów</h1>
+
+    <ul>
+        {% for rental in rentals %}
+            <li>
+                <strong>{{ rental.car.brand }} {{ rental.car.model }}</strong><br>
+                Data początkowa: {{ rental.start_date }}<br>
+                Data końcowa: {{ rental.end_date }}<br>
+                Cena całkowita: {{ rental.total_price }} PLN
+            </li>
+        {% empty %}
+            <li>Brak historii wynajmów.</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
