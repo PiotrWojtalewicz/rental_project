@@ -1,0 +1,21 @@
+from .models import Car
+import csv
+
+def run():
+    with open('rental_app/cars.csv') as file:
+        reader = csv.reader(file)
+        next(reader)  # Advance past the header
+
+        Car.objects.all().delete()
+
+        for row in reader:
+            print(row)
+
+            car = Car(
+                        brand=row[0],
+                        model=row[1],
+                        fuel_type=row[2],
+                        available=row[3],
+                        price_per_day=row[4],
+            )
+            car.save()

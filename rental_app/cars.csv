@@ -1,0 +1,5 @@
+"brand","model","fuel_type","available","price_per_day"
+"BMW","Seria 3","diesel","True","100$"
+"Toyota", 'Yaris Cross', "hybrid","True","80$"
+"Audi", "A3","diesel", "No", "70$
+"Mazda","CX3","diesel","True","75"

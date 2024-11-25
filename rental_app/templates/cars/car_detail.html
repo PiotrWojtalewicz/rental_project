@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5" style="width: 70%;">
+    <div class="col">
+        <h1 class="text-center">Car Details</h1>
+        <div class="d-flex justify-content-center">
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered table-sm ">
+                  <tbody>
+                    <tr>
+                      <td style="min-width:200px">brand</td>
+                      <td style="min-width:200px">{{car.brand}}</td>
+                    </tr>
+                    <tr>
+                      <td>Model</td>
+                      <td>{{car.model}}</td>
+                    </tr>
+                    <tr>
+                      <td>Fuel_type</td>
+                      <td>{{car.fuel_type}}</td>
+                    </tr>
+                    <tr>
+                      <td>Available</td>
+                      <td>{{car.available}}</td>
+                    </tr>
+                    <tr>
+                      <td>Price per day</td>
+                      <td>{{car.price_per_day}}</td>
+                    </tr>
+                  </tbody>
+
+                  <caption>
+                    Captions of the table
+                  </caption>
+
+                </table>
+
+                <table class="table table-striped mt-5" style="width: 50%">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for label, value in film.get_fields  %}
+                            <tr>
+                                <td>{{label | upper}}</td>
+                                <td>{{value}}</td>
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+              </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'cars:all' %}" class="d-block btn btn-primary btn-lg my-5">BACK</a>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock  %}
